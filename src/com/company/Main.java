@@ -7,13 +7,11 @@ import java.util.Random;
  * i conté el mètode "nova_lletra" que permet que funcioni el joc. 
  * @author ies
  */
-public class Main {
+public class Main extends SuperClass {
 
-    static protected String paraules[] = {"hola","programació","casa"};
-    static protected int index;
-    static protected String p;
+    private static boolean trobada;
 
-    /**
+	/**
      * Gestiona la execució del programa. Mètode principal, crida els mètodes secundaris.
      * Obté una paraula oculta, demana una lletra a l'usuari, comprova cridant un altre mètode si
      * la lletra està a la paraula. 
@@ -36,7 +34,7 @@ public class Main {
         int num_errors = 0;
 
         while (!p.equals(paraules[index]) && num_errors < 5) {
-            if (!nova_lletra(reader.next().charAt(0))) {
+            if (!comparar_nova_lletra(reader.next().charAt(0))) {
                 num_errors++;
             }
             System.out.println(p);
@@ -50,8 +48,8 @@ public class Main {
      * @return trobada (Boolean)
      * @author ies
      */
-    static public boolean nova_lletra(char nova) {
-        boolean trobada = false;
+    static public boolean comparar_nova_lletra(char nova) {
+        trobada = false;
         String paraula_old = p;
         p = "";
         for (int i=0; i<paraules[index].length(); i++) {
