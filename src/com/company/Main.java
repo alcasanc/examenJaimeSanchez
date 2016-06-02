@@ -2,13 +2,24 @@ package com.company;
 
 import java.util.Scanner;
 import java.util.Random;
-
+/**
+ * Classe principal, conté el mètode de Main que executarà i controlarà la execució del programa
+ * i conté el mètode "nova_lletra" que permet que funcioni el joc. 
+ * @author ies
+ */
 public class Main {
 
     static protected String paraules[] = {"hola","programació","casa"};
     static protected int index;
     static protected String p;
 
+    /**
+     * Gestiona la execució del programa. Mètode principal, crida els mètodes secundaris.
+     * Obté una paraula oculta, demana una lletra a l'usuari, comprova cridant un altre mètode si
+     * la lletra està a la paraula. 
+     * Gestiona els errors de l'usuari, si te 5 o més el programa acaba.
+     * @param args
+     */
     public static void main(String[] args) {
         System.out.println("Comença el joc!");
 
@@ -32,6 +43,13 @@ public class Main {
         }
    }
 
+    /**
+     * El mètode rep per paràmetre un Caràcter que comprovarà si és a la paraula oculta
+     * o no hi es. Si hi es retornarà true, si no retorna false.
+     * @param nova (char)
+     * @return trobada (Boolean)
+     * @author ies
+     */
     static public boolean nova_lletra(char nova) {
         boolean trobada = false;
         String paraula_old = p;
